@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Just Dial Vance | Youth Law, Real Results</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Playfair Display (Serif for Headers) & Inter (Sans-serif for Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        'gold': '#D4AF37',
+                        'brand-black': '#0a0a0a',
+                        'off-white': '#f3f3f3',
+                        'dark-gray': '#111111',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- React & Babel for JSX transpilation -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <style>
+      body {
+        background-color: #0a0a0a; /* brand-black */
+        font-family: 'Inter', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        color: #f3f3f3; /* off-white */
+      }
+      /* Adding a subtle glow effect for the hero text */
+      .text-glow {
+        text-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+      }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // --- LEADERSHIP DATA ---
+        // I've used the names you provided and assigned roles.
+        // The imageUrls are placeholders; you can replace them with your actual file URLs.
+        const leadershipTeam = [
+            {
+                name: "Ankit Kantheti",
+                role: "Founder",
+                imageUrl: "https://placehold.co/400x400/1a1a1a/FFFFFF?text=AK",
+                // Corresponds to 'Screenshot 2025-06-17 at 5.07.28 PM.jpg'
+            },
+            {
+                name: "Brady",
+                role: "Executive Board",
+                imageUrl: "https://placehold.co/400x400/1a1a1a/FFFFFF?text=B",
+                // Corresponds to 'Screenshot 2025-06-17 at 5.08.09 PM.png'
+            },
+            {
+                name: "Aiden",
+                role: "Executive Board",
+                imageUrl: "https://placehold.co/400x400/1a1a1a/FFFFFF?text=A",
+                 // Corresponds to 'Screenshot 2025-06-17 at 5.08.17 PM.jpg'
+            },
+            {
+                name: "Everett",
+                role: "Executive Board",
+                imageUrl: "https://placehold.co/400x400/1a1a1a/FFFFFF?text=E",
+                // Corresponds to 'image_650909.jpg'
+            },
+        ];
+        
+        // --- SECTION COMPONENTS ---
+
+        const Header = () => (
+            <header className="fixed top-0 left-0 w-full z-50 p-6 bg-brand-black/50 backdrop-blur-lg border-b border-white/10">
+               <div className="max-w-7xl mx-auto">
+                 <h2 className="text-white font-serif text-2xl tracking-wider">Just Dial Vance</h2>
+               </div>
+            </header>
+        );
+
+        const HeroSection = () => (
+            <section className="h-screen w-full bg-brand-black flex flex-col justify-center items-center text-center p-8">
+                <div className="relative z-10">
+                    <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-extrabold text-white tracking-tight">
+                        Youth Law. <span className="text-gold text-glow">Real Results.</span>
+                    </h1>
+                    <p className="mt-6 text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
+                        Representing the citizens of Tar Heel Boys State with unmatched dedication.
+                    </p>
+                    <a
+                        href="https://docs.google.com/forms" // Placeholder for Google Form link
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-12 inline-block bg-gold text-brand-black font-bold py-4 px-10 rounded-lg text-lg transition-all duration-300 ease-in-out hover:scale-105 hover:bg-yellow-300 focus:outline-none focus:ring-4 focus:ring-gold/50"
+                        aria-label="Submit a case by filling out our Google Form"
+                    >
+                        Submit a Case
+                    </a>
+                </div>
+            </section>
+        );
+
+        const MissionSection = () => (
+            <section className="py-24 md:py-32 bg-dark-gray">
+                <div className="max-w-4xl mx-auto px-6 text-center">
+                    <h2 className="font-serif text-4xl md:text-5xl font-bold text-white">Our Mission</h2>
+                    <p className="mt-6 text-xl md:text-2xl text-gray-300 leading-relaxed">
+                        We’re a youth-run legal service for the citizens of Tar Heel Boys State. Whether your rights were violated or you’re in the middle of a dispute, our attorneys fight for you with integrity, dedication, and unparalleled legal acumen.
+                    </p>
+                </div>
+            </section>
+        );
+
+        const DirectionsSection = () => {
+            const steps = [
+                { title: "Submit Your Case", description: "Fill out our secure online Google Form with the details of your situation. It's fast, easy, and confidential." },
+                { title: "Await Contact", description: "Our intake team will review your submission and an attorney will contact you directly—guaranteed within one hour." },
+                { title: "Consult Your Attorney", description: "Meet with your assigned youth attorney to discuss your case, explore your options, and plan the path to justice." },
+            ];
+
+            return (
+                <section className="py-24 md:py-32 bg-brand-black text-white">
+                    <div className="max-w-6xl mx-auto px-6">
+                        <div className="text-center mb-20">
+                            <h2 className="font-serif text-4xl md:text-5xl font-bold">Your Path to Resolution</h2>
+                            <p className="mt-4 text-lg text-gray-400">A simple, three-step process to get the legal help you deserve.</p>
+                        </div>
+                        <div className="grid md:grid-cols-3 gap-12">
+                            {steps.map((step, index) => (
+                                <div key={index} className="relative flex flex-col items-center text-center p-6">
+                                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center h-20 w-20 rounded-full bg-dark-gray border-2 border-gold text-gold mb-6">
+                                        <span className="text-3xl font-serif font-bold">{`0${index + 1}`}</span>
+                                    </div>
+                                    <div className="pt-12">
+                                        <h3 className="font-serif text-2xl font-semibold text-white">{step.title}</h3>
+                                        <p className="mt-3 text-gray-400">{step.description}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+        
+        const TeamSection = () => (
+            <section className="py-24 md:py-32 bg-dark-gray">
+                <div className="max-w-6xl mx-auto px-6">
+                    <div className="text-center mb-16">
+                        <h2 className="font-serif text-4xl md:text-5xl font-bold text-white">Our Leadership</h2>
+                        <p className="mt-4 text-lg text-gray-400">The premier legal minds of Boys State.</p>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
+                        {leadershipTeam.map((member) => (
+                            <div key={member.name} className="group text-center">
+                                <div className="relative w-48 h-48 mx-auto overflow-hidden rounded-full border-4 border-gray-700 group-hover:border-gold transition-colors duration-300">
+                                    <img 
+                                        src={member.imageUrl} 
+                                        alt={`Headshot of ${member.name}`} 
+                                        className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500 ease-in-out transform group-hover:scale-110" 
+                                        onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/400x400/1a1a1a/FFFFFF?text=Error'; }}
+                                    />
+                                </div>
+                                <h3 className="mt-6 font-bold text-2xl text-white font-sans">{member.name}</h3>
+                                <p className="text-gold text-lg">{member.role}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+        );
+
+        const Footer = () => (
+            <footer className="bg-black py-10 border-t border-white/10">
+                <div className="max-w-6xl mx-auto px-6 text-center text-gray-500">
+                    <p>&copy; {new Date().getFullYear()} Just Dial Vance</p>
+                    <p className="mt-2 text-sm">Created by Ankit Kantheti | Tar Heel Boys State 2025 | All Rights Reserved</p>
+                </div>
+            </footer>
+        );
+
+        // --- MAIN APP COMPONENT ---
+        const App = () => {
+            return (
+                <div className="bg-brand-black">
+                    <Header />
+                    <main>
+                        <HeroSection />
+                        <MissionSection />
+                        <DirectionsSection />
+                        <TeamSection />
+                    </main>
+                    <Footer />
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
